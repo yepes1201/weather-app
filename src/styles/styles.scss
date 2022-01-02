@@ -1,0 +1,21 @@
+// Initial Settings
+@import "./base/settings";
+@import "./base/base";
+
+// App Styles
+.app__container {
+  // display: flex;
+}
+.app__container {
+  width: 100%;
+  height: 100%;
+}
+// Components
+@import "./components/sidebar";
+@import "./components/favoritecard";
+@import "./components/home";
+@import "./components/search";
+@import "./components/citydata";
+@import "./components/forecastcard";
+@import "./components/modal";
+@import "./components/loadingwheel";

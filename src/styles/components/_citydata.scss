@@ -1,0 +1,134 @@
+.citydata {
+  margin-bottom: 2rem;
+}
+
+.citydata__container {
+  background-color: $transparent-blue;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.citydata__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.citydata__data-header {
+  color: $dark-blue;
+}
+
+.citydata__city-name {
+  font-size: 1.5rem;
+}
+
+.citydata__city-temp {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.citydata__city-weather {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.citydata__city-desc {
+  font-size: 1.25rem;
+}
+
+.citydata__img {
+  max-width: 140px;
+  background-color: $grey;
+  border-radius: 100%;
+}
+
+.citydata__forecast {
+  align-items: center;
+  background-color: $grey;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+}
+
+.citydata__forecast-title {
+  color: $white;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.citydata__daily {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.citydata__add-btn {
+  color: $dark-blue;
+  cursor: pointer;
+  background-color: $transparent-blue;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  width: 300px;
+  height: 60px;
+
+  transition: background 0.3s ease;
+
+  i {
+    margin-right: 0.5rem;
+  }
+
+  &:hover {
+    background-color: darken($color: $transparent-blue, $amount: 5);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .citydata__img {
+    max-width: 80px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .citydata__container {
+    padding: 0.8rem 1rem;
+  }
+  .citydata__city-name {
+    font-size: 1.25rem;
+  }
+
+  .citydata__city-temp {
+    font-size: 2rem;
+  }
+
+  .citydata__city-weather {
+    font-size: 1rem;
+  }
+
+  .citydata__city-desc {
+    font-size: 0.9rem;
+  }
+
+  .citydata__img {
+    max-width: 100px;
+  }
+
+  .citydata__forecast {
+    text-align: center;
+  }
+
+  .citydata__add-btn {
+    width: 100%;
+  }
+
+  .citydata__img {
+    max-width: 60px;
+  }
+}

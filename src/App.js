@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback, useEffect, useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import { Home } from "./components/Home";
+import { Modal } from "./components/Modal";
+import { Sidebar } from "./components/Sidebar";
+
+import { FavoriteContext } from "./context/FavoriteContext";
+
+import { responsiveSidebar, setOverflowBody } from "./helpers/helpers";
+
+import "./styles/styles.css";
+
+export const App = () => {
+  const [favoriteCities, setFavoriteCities] = useState(
+    JSON.parse(localStorage.getItem("favCities")) || []
   );
-}
+  const [defaultCity, setDefaultCity] = useState(
+    JSON.parse(localStorage.getItem("defaultCity")) || ""
+  );
+  const [modal, setModal] = useState(defaultCity.length === 0 ? true : false);
 
-export default App;
+  const saveData = useCallback((data) => {
+    localStorage.setItem("favCities", JSON.stringify(data));
+  }, []);
+
+  // Set Modal status
+  useEffect(() => {
+    setOverflowBody(modal);
+  }, [modal]);
+
+  return (
+    <FavoriteContext.Provider
+      value={{
+        favoriteCities,
+        setFavoriteCities,
+        saveData,
+      }}
+    >
+      <div>
+        <div className="app__container animate__animated animate__fadeIn">
+          <Sidebar
+            handleBtnMenuClick={responsiveSidebar}
+            defaultCity={defaultCity}
+          />
+          <Home handleBtnMenuClick={responsiveSidebar} setModal={setModal} />
+          {modal && (
+            <Modal setModal={setModal} setDefaultCity={setDefaultCity} />
+          )}
+        </div>
+      </div>
+    </FavoriteContext.Provider>
+  );
+};

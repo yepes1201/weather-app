@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.overflow-hidden {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.shadow {
+  box-shadow: 0 2px 10px rgba($color: #000000, $alpha: 0.2);
+}
+
+.advice {
+  color: $grey;
+  font-size: 1.25rem;
+  font-weight: 500;
+  left: 50%;
+  position: relative;
+  text-align: center;
+  top: 50vh;
+  transform: translate(-50%, -25vh);
+  width: 100%;
+}
