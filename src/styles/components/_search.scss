@@ -27,6 +27,7 @@
   width: 200px;
   &:focus {
     outline: none;
+    background-color: $transparent-blue;
   }
 }
 

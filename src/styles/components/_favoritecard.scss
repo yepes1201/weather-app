@@ -1,4 +1,5 @@
 .favoritecard__container {
+  align-items: center;
   background-color: $transparent-blue;
   border-radius: 10px;
   color: $dark-blue;
@@ -11,8 +12,20 @@
   padding: 8px 16px;
   width: 90%;
 
+  transition: background-color 0.3s ease;
+
   img {
+    background-color: $grey;
+    border-radius: 100%;
     width: 60px;
+  }
+
+  &:hover {
+    background-color: darken($color: $transparent-blue, $amount: 5);
+  }
+
+  &:active {
+    background-color: darken($color: $transparent-blue, $amount: 12.5);
   }
 }
 

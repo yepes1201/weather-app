@@ -40,6 +40,7 @@ export const Modal = ({ setModal, setDefaultCity }) => {
         <hr />
         <div>
           <input
+            autoFocus
             className="shadow"
             type="text"
             name="city"

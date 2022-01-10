@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FavoriteContext } from "../context/FavoriteContext";
 import { CityData } from "./CityData";
 
-export const Result = ({ cityData }) => {
+export const Result = React.memo(({ cityData }) => {
   const favoriteContext = useContext(FavoriteContext);
   const { favoriteCities, setFavoriteCities } = favoriteContext;
   const added = (
@@ -66,4 +66,4 @@ export const Result = ({ cityData }) => {
       )}
     </>
   );
-};
+});

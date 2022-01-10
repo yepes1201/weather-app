@@ -13,14 +13,23 @@ export const Sidebar = memo(({ handleBtnMenuClick, defaultCity }) => {
 
   // Time Update
   useEffect(() => {
-    setInterval(() => {
+    const timerInterval = setInterval(() => {
       setTime(getTime());
     }, 60000 - seconds * 1000);
+    return () => clearInterval(timerInterval);
   }, [seconds]);
 
   // Default City
   useEffect(() => {
     getCity(defaultCity).then((data) => setDefaultCityData(data));
+  }, [defaultCity, setDefaultCityData]);
+
+  // Default City Update
+  useEffect(() => {
+    const defCityInterval = setInterval(() => {
+      getCity(defaultCity).then((data) => setDefaultCityData(data));
+    }, 600000);
+    return () => clearInterval(defCityInterval);
   }, [defaultCity, setDefaultCityData]);
 
   // Load favorite cities
@@ -46,7 +55,10 @@ export const Sidebar = memo(({ handleBtnMenuClick, defaultCity }) => {
       <div className="sidebar__header">
         <br />
         <span className="sidebar__temp">
-          {Math.round(defaultCityData.main?.temp) || "--ºC"}
+          {defaultCityData.main?.temp
+            ? Math.round(defaultCityData.main?.temp)
+            : "--"}
+          ºC
         </span>
         <p className="sidebar__location">
           {defaultCityData.name || "..."},{" "}

@@ -12,7 +12,7 @@ export const Search = ({ searchForm, setSearchForm, handleSearch }) => {
   return (
     <div className="search__container">
       <div className="search__input-container shadow">
-        <i onClick={handleSearch} className="fas fa-search"></i>
+        <i id="search-btn" onClick={handleSearch} className="fas fa-search"></i>
         <input
           onChange={handleInputForm}
           className="search__input"

@@ -1,14 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 export const FavoriteCard = React.memo(({ name, sys, main, weather }) => {
   let regionNames = new Intl.DisplayNames(["en"], { type: "region" });
-  const handleClickModal = () => {
-    // setModal(true);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/search/${name}`);
   };
   return (
     <div
       className="favoritecard__container animate__animated animate__fadeIn"
-      onClick={handleClickModal}
+      onClick={handleClick}
     >
       <div>
         <p className="favoritecard__location">

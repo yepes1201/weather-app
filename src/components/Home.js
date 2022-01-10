@@ -1,20 +1,32 @@
-import React, { useState } from "react";
-import { getCity } from "../helpers/api";
+import React, { useEffect, useState } from "react";
+
+import { useNavigate, useParams } from "react-router";
+
 import { Result } from "./Result";
 import { Search } from "./Search";
 
+import { getCity } from "../helpers/api";
+
 export const Home = ({ handleBtnMenuClick, setModal }) => {
+  const navigate = useNavigate();
+  const { city } = useParams();
   const [searchForm, setSearchForm] = useState({
-    city: "",
+    city: city || "",
   });
   const [cityData, setCityData] = useState({});
   const closed = <i className="fas fa-bars"></i>;
 
   const handleSearch = () => {
-    getCity(searchForm.city).then((data) => {
-      setCityData(data);
-    });
+    navigate(`/search/${searchForm.city}`);
   };
+
+  useEffect(() => {
+    if (city) {
+      getCity(city).then((data) => {
+        setCityData(data);
+      });
+    }
+  }, [city]);
 
   return (
     <div className="home__container">
