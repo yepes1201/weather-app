@@ -49,6 +49,19 @@ export const Home = ({ handleBtnMenuClick, setModal }) => {
         />
         <Result cityData={cityData} />
       </div>
+      <footer>
+        <p className="footer__data">
+          Data provided by{" "}
+          <a
+            target="_blank"
+            href="https://openweathermap.org/"
+            rel="noreferrer noopener"
+          >
+            OpenWeatherMap
+          </a>
+        </p>
+        <p>© Daniel Yepes {new Date().getFullYear()}</p>
+      </footer>
     </div>
   );
 };

@@ -265,6 +265,7 @@ body {
 .home__container {
   margin-left: 350px;
   width: calc(100%-350px);
+  margin-bottom: 4rem;
 }
 
 .home__header {
@@ -327,6 +328,7 @@ body {
   .home__container {
     width: 100%;
     margin: 0;
+    margin-bottom: 4rem;
   }
   .home__header {
     font-size: 1.5rem;
@@ -923,6 +925,40 @@ body {
   50% {
     -webkit-transform: scale(1.5);
             transform: scale(1.5);
+  }
+}
+
+footer {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #052039;
+  bottom: 0;
+  color: #ecf3f9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.85rem;
+  height: 45px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1rem;
+  position: fixed;
+  right: 0;
+  width: calc(100% - 350px);
+}
+
+footer a {
+  color: #75b4ec;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+  footer {
+    width: 100%;
+    font-size: 0.75rem;
   }
 }
 /*# sourceMappingURL=styles.css.map */

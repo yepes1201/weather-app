@@ -1,0 +1,27 @@
+footer {
+  align-items: center;
+  background-color: $dark-blue;
+  bottom: 0;
+  color: $transparent-blue;
+  display: flex;
+  font-size: 0.85rem;
+  height: 45px;
+  justify-content: space-between;
+  padding: 0 1rem;
+  position: fixed;
+  right: 0;
+  width: calc(100% - 350px);
+
+  a {
+    color: $sky-blue;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  footer {
+    width: 100%;
+    font-size: 0.75rem;
+  }
+}
