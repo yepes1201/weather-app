@@ -52,29 +52,16 @@ export const App = () => {
                   setModal={setModal}
                 />
               }
-            >
-              <Route
-                path="search"
-                element={
-                  <Home
-                    handleBtnMenuClick={responsiveSidebar}
-                    setModal={setModal}
-                  />
-                }
-              >
-                <Route index element={<Navigate to="/" replace />} />
-                <Route
-                  path=":city"
-                  element={
-                    <Home
-                      handleBtnMenuClick={responsiveSidebar}
-                      setModal={setModal}
-                    />
-                  }
+            />
+            <Route
+              path="/search/:city"
+              element={
+                <Home
+                  handleBtnMenuClick={responsiveSidebar}
+                  setModal={setModal}
                 />
-              </Route>
-            </Route>
-
+              }
+            />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
 
