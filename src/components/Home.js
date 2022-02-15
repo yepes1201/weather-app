@@ -8,8 +8,8 @@ import { Search } from "./Search";
 import { getCity } from "../helpers/api";
 
 export const Home = ({ handleBtnMenuClick, setModal }) => {
-  const navigate = useNavigate();
   const { city } = useParams();
+  const navigate = useNavigate();
   const [searchForm, setSearchForm] = useState({
     city: city || "",
   });
