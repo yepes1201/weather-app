@@ -4,7 +4,6 @@ export const getCity = async (city) => {
     const resp = await fetch(url);
     return await resp.json();
   } catch (err) {
-    console.log(err);
     return {
       err: true,
     };
@@ -17,7 +16,9 @@ export const getForecast = async (lat, lon) => {
     const data = await fetch(url);
     return await data.json();
   } catch (err) {
-    console.log(err);
+    return {
+      err: true,
+    };
   }
 };
 
