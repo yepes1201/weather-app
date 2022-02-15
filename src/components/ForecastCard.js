@@ -5,7 +5,7 @@ export const ForecastCard = ({ forecastData, forecastIndex }) => {
   const [day, setDay] = useState("");
   useEffect(() => {
     const dayNumber = new Date().getUTCDay();
-    const dayName = getDayName(dayNumber + forecastIndex + 1);
+    const dayName = getDayName(dayNumber + forecastIndex);
     setDay(dayName);
   }, [forecastIndex]);
   return (

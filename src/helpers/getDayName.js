@@ -1,4 +1,6 @@
 export const getDayName = (day) => {
+  if (day === 7) day = 0;
+  if (day === 8) day = 1;
   switch (day) {
     case 0:
       return "Sunday";
