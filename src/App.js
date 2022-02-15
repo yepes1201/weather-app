@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { Navigate, Route, Routes } from "react-router";
 
 import { Home } from "./components/Home";
 import { Modal } from "./components/Modal";
@@ -42,7 +43,41 @@ export const App = () => {
             handleBtnMenuClick={responsiveSidebar}
             defaultCity={defaultCity}
           />
-          <Home handleBtnMenuClick={responsiveSidebar} setModal={setModal} />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  handleBtnMenuClick={responsiveSidebar}
+                  setModal={setModal}
+                />
+              }
+            >
+              <Route
+                path="search"
+                element={
+                  <Home
+                    handleBtnMenuClick={responsiveSidebar}
+                    setModal={setModal}
+                  />
+                }
+              >
+                <Route index element={<Navigate to="/" replace />} />
+                <Route
+                  path=":city"
+                  element={
+                    <Home
+                      handleBtnMenuClick={responsiveSidebar}
+                      setModal={setModal}
+                    />
+                  }
+                />
+              </Route>
+            </Route>
+
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+
           {modal && (
             <Modal setModal={setModal} setDefaultCity={setDefaultCity} />
           )}
